@@ -17,9 +17,9 @@
 const Route = use('Route')
 
 Route.on('/').render('home')
-Route.get('/test', () => 'Hello world!')
-Route.get('/test/:id', function({ params }) {
-  return `this is the id ${params.id}`;
-})
+// Route.get('/test', () => 'Hello world!')
+// Route.get('/test/:id', function({ params }) {
+//   return `this is the id ${params.id}`;
+// })
 
-Route.get('/task', 'TaskController.index')
+// Route.get('/task', 'TaskController.index')
