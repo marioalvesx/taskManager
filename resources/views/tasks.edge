@@ -1,0 +1,16 @@
+@layout('main')
+@section('content')
+<h1>{{ title }}</h1>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  swal("Good job!", "You clicked the button!", "success");
+</script>
+
+<div class="list-group">
+  @each(item in tasks)
+    <a href="#" class="list-group-item list-group-item-action">{{ item.title }} </a>
+  @endeach
+</div>
+@endsection

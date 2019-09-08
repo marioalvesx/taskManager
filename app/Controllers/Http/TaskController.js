@@ -7,8 +7,8 @@ class TaskController {
       {title: 'Task two', body: 'This is task two'},
     ]
 
-    return view.render('task', {
-      title: 'Your tasks',
+    return view.render('tasks', {
+      title: 'Latest tasks',
       tasks: tasks
     })
   }
