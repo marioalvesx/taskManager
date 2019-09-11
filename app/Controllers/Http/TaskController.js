@@ -2,15 +2,15 @@
 
 const Task = use('App/Models/Task')
 
-class TaskController {
-  async index({ view }) {
-    const tasks = await Task.all()
+// class TaskController {
+//   async index({ view }) {
+//     const tasks = await Task.all()
 
-    return view.render('tasks', {
-      title: 'Latest tasks',
-      tasks: tasks.toJSON()
-    })
-  }
-}
+//     return view.render('tasks', {
+//       title: 'Latest tasks',
+//       tasks: tasks.toJSON()
+//     })
+//   }
+// }
 
 module.exports = TaskController
