@@ -2,6 +2,7 @@
 @section('content')
   <h1 class="mb-3">New task</h1>
 <form action="{{ route('/add') }}" method="POST">
+{{ csrfField() }}
   <div class="mb-3">
     <label for="">Title</label>
     <input type="text" class="form-control is-invalid" name="title" placeholder="Your title" value="">

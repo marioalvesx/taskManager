@@ -4,9 +4,12 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+@if(old('notification'))
 <script>
-  swal("Good job!", "You clicked the button!", "success");
+  // const message = old('notification')
+  swal("Good job!", "Task added!", "success");
 </script>
+@endif
 
 <div class="list-group">
   @each(item in tasks)
