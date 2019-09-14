@@ -1,6 +1,7 @@
 'use strict'
 
 const Task = use('App/Models/Task')
+const { validateAll } = use('Validator')
 
 class TaskController {
   async index({ view }) {
@@ -13,6 +14,22 @@ class TaskController {
   }
 
   async store({ request, response, session }) {
+
+    const message = {
+      'title.required': 'Required',
+      'title.min': 'min 3'
+    }
+
+    const validation = await validateAll(request.all(), {
+      title: 'required|min:5|max:140',
+      body: 'required|min:10'
+    }, message)
+
+    if (validation.fails()){
+      session.withErrors(validation.messages()).flashAll()
+      return response.redirect('back')
+    }
+
     const task = new Task()
 
     task.title = request.input('title')
@@ -20,7 +37,7 @@ class TaskController {
 
     await task.save()
 
-    session.flash({ notification: 'Task added!'})
+    // session.flash({ notification: 'Task added!'}) pode ser passada a notification para a pagina web do formulario por meio das rotas
 
     return response.redirect('/tasks')
   }
