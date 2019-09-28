@@ -50,6 +50,20 @@ class TaskController {
     })
   }
 
+// Função para remover tarefa:
+// * 'DELETE' é uma palavra reservada.
+// Usar remove ou destroy para apagar registro;
+// 1# Selecionar tarefa , pelo seu id
+// 2# Apagar tarefa pelo comando delete;
+  async remove({ params, response, session }) {
+    const task = await Task.find(params.id)
+    await task.delete()
+    session.flash({ notification: 'Task removed!' })
+
+    return response.redirect('/tasks')
+  }
+// Após função pronta, retornar para visualização das outras Tasks;
+// Depois, criar rota para o remove
 
 }
 
